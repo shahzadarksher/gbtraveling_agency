@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GB Traveling Agency - Your Journey Begins Here</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="navbar-content">
+            <div class="logo">
+                <i class="fas fa-globe"></i> GB Traveling
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Gilgit-Baltistan</h1>
+                <p class="hero-subtitle">Experience the breathtaking mountains, pristine lakes, and untouched beauty of Pakistan's northern paradise</p>
+                <a href="destinations.html" class="cta-button">Explore Destinations</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <h3>Find Your Perfect Getaway</h3>
+                <form class="search-form">
+                    <input type="text" placeholder="Destination" required>
+                    <input type="date" required>
+                    <input type="date" required>
+                    <select required>
+                        <option>Travel Type</option>
+                        <option>Beach</option>
+                        <option>Mountain</option>
+                        <option>Adventure</option>
+                        <option>Cultural</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Featured Packages -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2>Featured Travel Packages</h2>
+                <p>Hand-picked experiences for every traveler</p>
+            </div>
+            <div class="packages-showcase" id="featuredPackages">
+                <!-- Featured packages will load here -->
+            </div>
+        </section>
+
+        <!-- Featured Destinations -->
+        <section class="destinations-section">
+            <div class="section-header">
+                <h2>Popular Destinations</h2>
+                <p>Explore the most visited places around the globe</p>
+            </div>
+            <div class="destination-grid" id="destinationGrid">
+                <!-- Destinations will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-us">
+            <div class="section-header">
+                <h2>Why Choose GB Traveling?</h2>
+                <p>What makes us different</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We guarantee the lowest prices for all our travel packages</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Expert Guides</h3>
+                    <p>Professional and experienced guides for every destination</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support during your travels</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>100% Safe</h3>
+                    <p>Your safety and comfort are our top priorities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2>What Our Travelers Say</h2>
+                <p>Read stories from our happy customers</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Attabad Lake was absolutely stunning! The azure waters and surrounding mountains left us speechless. GB Traveling Agency made it perfect."</p>
+                    <h4>Sarah Mitchell</h4>
+                    <span>Hunza Valley Tour</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Deosai Plains tour was life-changing! Standing on one of the world's highest plateaus with Sheosar Lake below was incredible."</p>
+                    <h4>Ahmed Hassan</h4>
+                    <span>High Altitude Expedition</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Grand GB Circuit was the adventure of a lifetime! Every destination was more beautiful than the last. Highly recommended!"</p>
+                    <h4>Emma Chen</h4>
+                    <span>Grand GB Circuit</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get exclusive offers and travel tips delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GB Traveling Agency</h4>
+                <p>Your premier travel agency for Gilgit-Baltistan adventures. We specialize in mountain tourism, cultural experiences, and unforgettable journeys since 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Gilgit, Gilgit-Baltistan, Pakistan</p>
+                <p><i class="fas fa-phone"></i> +92-581-XXXX</p>
+                <p><i class="fas fa-envelope"></i> info@gbtraveling.pk</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GB Traveling Agency - Gilgit-Baltistan, Pakistan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

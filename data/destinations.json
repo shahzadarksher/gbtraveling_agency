@@ -1,0 +1,230 @@
+[
+  {
+    "id": 1,
+    "name": "Attabad Lake, Hunza Valley",
+    "description": "Azure waters perfect for boating and jet skiing, surrounded by majestic mountains. A stunning natural wonder.",
+    "price": 850
+  },
+  {
+    "id": 2,
+    "name": "Hunza Valley - Altit & Baltit Forts",
+    "description": "Ancient forts with rich history and architecture. Experience Hunza's cultural heritage and best sunrise/sunset views from Duikar.",
+    "price": 750
+  },
+  {
+    "id": 3,
+    "name": "Skardu Valley - Shangrila Lake",
+    "description": "Mesmerizing alpine lake in a paradise-like valley. Explore the cold desert of Katpana and serene landscapes.",
+    "price": 920
+  },
+  {
+    "id": 4,
+    "name": "Deosai Plains - Sheosar Lake",
+    "description": "One of the world's highest plateaus with diverse flora and fauna. Breathtaking mountain scenery and pristine nature.",
+    "price": 1050
+  },
+  {
+    "id": 5,
+    "name": "Passu Cones & Gulmit",
+    "description": "Dramatic mountain peaks, Pasu Glacier, and the thrilling Hussaini Suspension Bridge. Upper Hunza's most iconic destination.",
+    "price": 800
+  },
+  {
+    "id": 6,
+    "name": "Naltar Valley - Alpine Lakes",
+    "description": "Three stunning lakes: Satrangi, Blue Lake, and Bodlok. Alpine forests and world-class skiing resorts.",
+    "price": 780
+  },
+  {
+    "id": 7,
+    "name": "Khunjerab Pass - World's Highest Border",
+    "description": "Experience the world's highest border crossing at 5,000+ meters. Spectacular mountain views and unique adventure.",
+    "price": 650
+  },
+  {
+    "id": 8,
+    "name": "Phander Valley",
+    "description": "Deep blue river, trout fishing, and lush green landscapes. A serene haven in Ghizer District.",
+    "price": 700
+  },
+  {
+    "id": 9,
+    "name": "Rakaposhi View Point",
+    "description": "Majestic views of Rakaposhi mountain. Perfect for photography and experiencing raw mountain beauty.",
+    "price": 550
+  },
+  {
+    "id": 10,
+    "name": "Astore Valley - Rama Valley",
+    "description": "Lush green landscapes and surrounding alpine forests. A hidden gem with untouched natural beauty.",
+    "price": 680
+  },
+  {
+    "id": 11,
+    "name": "Skardu",
+    "region": "Central Gilgit-Baltistan",
+    "image": "skardu.jpg",
+    "description": "Nestled at 2,228 meters in the Indus Valley, Skardu is the gateway to Gilgit-Baltistan's most spectacular alpine landscapes. Experience crystalline glacial lakes, ancient Buddhist heritage, and the warmth of mountain hospitality.",
+    "highlights": [
+      "Shangrila Resort and freshwater Kachura Lake",
+      "Baltit Fort - 700-year-old Hunza fortress with panoramic views",
+      "Deosai Plains - 'Land of the Gods' with alpine meadows",
+      "Khaplu Palace - historic royal residence with cultural museum"
+    ],
+    "bestSeason": "May - October (10°C - 20°C: optimal for trekking and sightseeing; June-August warmest for water activities)",
+    "activities": [
+      "Trekking to Deosai Plains and alpine meadows",
+      "Rock climbing on Tilman Face and granite crags",
+      "Jeep safari through Nubra Valley",
+      "Kayaking and fishing on Kachura Lake",
+      "Photography tours during sunrise and sunset"
+    ],
+    "avgTemperature": "10°C - 20°C",
+    "difficulty": "Moderate",
+    "altitude": "2,228 meters above sea level"
+  },
+  {
+    "id": 12,
+    "name": "Hunza Valley",
+    "region": "Northern Gilgit-Baltistan",
+    "image": "hunza-valley.jpg",
+    "description": "Ancient kingdoms, terraced orchards, and the legendary longevity of its people define Hunza Valley. Nestled between the Karakoram and Hindu Kush mountains, this emerald oasis offers breathtaking Rakaposhi views and authentic cultural immersion.",
+    "highlights": [
+      "Karimabad fortress town with panoramic mountain vistas",
+      "Attabad Lake - stunning turquoise glacial reservoir",
+      "Rakaposhi Peak - 7,788m iconic mountain backdrop",
+      "Ancient apricot orchards and local homestay experiences"
+    ],
+    "bestSeason": "April - October (8°C - 22°C: spring blossoms in April-May, summer warmth perfect for sightseeing, autumn colors in September-October)",
+    "activities": [
+      "Trekking through apricot orchards and mountain passes",
+      "Boating and fishing on Attabad Lake",
+      "Photography of Rakaposhi Peak from multiple vantage points",
+      "Cultural tours and homestay dinners with Hunza families",
+      "Rock climbing on local crags"
+    ],
+    "avgTemperature": "8°C - 22°C",
+    "difficulty": "Easy to Moderate",
+    "altitude": "2,400 meters above sea level"
+  },
+  {
+    "id": 13,
+    "name": "Fairy Meadows",
+    "region": "Western Gilgit-Baltistan",
+    "image": "fairy-meadows.jpg",
+    "description": "Standing beneath the 8,126m Nanga Parbat, the world's 9th highest peak, Fairy Meadows offers alpine beauty and mountaineering opportunities in one of Earth's most dramatic settings. Emerald meadows contrast sharply against ice and stone.",
+    "highlights": [
+      "Nanga Parbat base camp at 3,300m - intimate view of the 'Killer Mountain'",
+      "Pristine alpine meadows carpeted with wildflowers in summer",
+      "Fairy Lake - crystal clear mountain lake surrounded by peaks",
+      "Legendary mountaineering expeditions and climbing base"
+    ],
+    "bestSeason": "June - September (5°C - 15°C: snow melts revealing meadows June-July, optimal climbing conditions July-August, autumn clarity September)",
+    "activities": [
+      "High-altitude mountaineering on Nanga Parbat",
+      "Alpine trekking to base camp and glacier viewpoints",
+      "Photography of the 'Killer Mountain' at sunrise",
+      "Acclimatization hikes and fitness training camps",
+      "Mountain bivouacking and wilderness camping"
+    ],
+    "avgTemperature": "5°C - 15°C",
+    "difficulty": "Challenging",
+    "altitude": "3,300 meters above sea level"
+  },
+  {
+    "id": 14,
+    "name": "Khaplu",
+    "region": "Southern Gilgit-Baltistan",
+    "image": "khaplu.jpg",
+    "description": "An off-the-beaten-path gem where a restored royal palace overlooks emerald valleys and ancient Balti traditions thrive. Khaplu offers quiet trekking, cultural immersion, and views of snow-capped peaks without tourist crowds.",
+    "highlights": [
+      "Khaplu Palace - beautifully restored 18th-century royal residence",
+      "Machulo Peak viewpoint - panoramic alpine vistas",
+      "Shyok River gorge - dramatic riverine landscapes",
+      "Ancient Balti villages with authentic homestay experiences"
+    ],
+    "bestSeason": "May - September (12°C - 20°C: spring blooms May-June, comfortable summer trekking July-August, golden autumn light September)",
+    "activities": [
+      "Trekking to Machulo Peak viewpoint",
+      "Palace exploration and cultural heritage tours",
+      "River trekking along Shyok Valley",
+      "Photography of Balti landscapes and architecture",
+      "Homestay dinners and village community engagement"
+    ],
+    "avgTemperature": "12°C - 20°C",
+    "difficulty": "Easy to Moderate",
+    "altitude": "3,600 meters above sea level"
+  },
+  {
+    "id": 15,
+    "name": "Deosai Plains",
+    "region": "Central-Eastern Gilgit-Baltistan",
+    "image": "deosai-plains.jpg",
+    "description": "At 4,272 meters, Deosai is Asia's highest motorable and only alpine meadowland—the legendary 'Land of the Gods.' Wildflowers explode in summer, brown bears roam freely, and the horizon stretches endlessly across alpine tundra.",
+    "highlights": [
+      "Asia's only high-altitude meadowland - endless wildflower carpets",
+      "Brown bear habitat - wildlife photography opportunities",
+      "Surgam Pass - the highest point on the plains",
+      "Barren Mountain & alpine lakes - stark high-altitude beauty"
+    ],
+    "bestSeason": "June - September (0°C - 10°C: wildflowers peak July-August, wildlife most active early morning, clear skies mid-summer)",
+    "activities": [
+      "Trekking across endless alpine meadows",
+      "Wildlife photography of brown bears and Himalayan ibex",
+      "High-altitude hiking to Surgam Pass",
+      "Sunrise and sunset photography on the plains",
+      "Mountain biking on alpine trails"
+    ],
+    "avgTemperature": "0°C - 10°C",
+    "difficulty": "Moderate to Challenging",
+    "altitude": "4,272 meters above sea level"
+  },
+  {
+    "id": 16,
+    "name": "Shigar Valley",
+    "region": "Central Gilgit-Baltistan",
+    "image": "shigar-valley.jpg",
+    "description": "Gateway to the Karakoram Highway's most dramatic section, Shigar Valley offers trekking to hidden glaciers, access to world-renowned climbing peaks, and the authentic warmth of mountain communities untouched by mass tourism.",
+    "highlights": [
+      "Shigar Fort - 17th-century fortress with panoramic river views",
+      "Brogil Pass - high mountain pass connecting Pakistan and Afghanistan border",
+      "Glacier trekking and ice climbing routes",
+      "Authentic Shigar village and local market experiences"
+    ],
+    "bestSeason": "May - September (10°C - 18°C: spring passes open May-June, glacier conditions optimal July-August, fall clarity September)",
+    "activities": [
+      "Glacier trekking and mountaineering expeditions",
+      "High mountain pass crossings",
+      "Rock and ice climbing on technical routes",
+      "Fort exploration and historical site tours",
+      "Photography of Karakoram landscapes"
+    ],
+    "avgTemperature": "10°C - 18°C",
+    "difficulty": "Challenging",
+    "altitude": "2,800 meters above sea level"
+  },
+  {
+    "id": 17,
+    "name": "Nubra Valley",
+    "region": "Northern Gilgit-Baltistan",
+    "image": "nubra-valley.jpg",
+    "description": "Where palm trees grow at 1,200 meters and the world's highest motorable pass towers above, Nubra Valley is a unique eco-zone. Ancient trade routes, Balti villages, and proximity to the Siachen Glacier define this frontier region.",
+    "highlights": [
+      "Diskit Monastery - 600-year-old Buddhist heritage site",
+      "Khardung La Pass - world's highest motorable pass at 5,359m",
+      "Nubra sand dunes - unexpected desert in a mountain kingdom",
+      "Ancient Silk Road trading routes and caravanserais"
+    ],
+    "bestSeason": "May - September (5°C - 15°C: spring passes open May-June, summer warmth July-August, autumn visibility September)",
+    "activities": [
+      "Jeep safari to Khardung La Pass",
+      "Buddhist monastery tours and cultural immersion",
+      "Trekking to ancient trading outposts",
+      "Photography of desert-mountain contrasts",
+      "Historical Silk Road exploration"
+    ],
+    "avgTemperature": "5°C - 15°C",
+    "difficulty": "Moderate",
+    "altitude": "3,100 meters above sea level"
+  }
+]
