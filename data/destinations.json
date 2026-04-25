@@ -2,72 +2,132 @@
   {
     "id": 1,
     "name": "Attabad Lake, Hunza Valley",
-    "description": "Azure waters perfect for boating and jet skiing, surrounded by majestic mountains. A stunning natural wonder.",
+    "emoji": "🏔️",
+    "description": "Azure waters perfect for boating and jet skiing, surrounded by majestic mountains. A stunning natural wonder with turquoise glacial waters.",
     "price": 850,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 2,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["Hunza Valley Explorer", "Northern Gilgit-Baltistan Tour"],
+    "activities": ["Boating", "Photography", "Hiking"],
+    "altitude": "2,500m",
+    "temperature": "10°C - 18°C"
   },
   {
     "id": 2,
     "name": "Hunza Valley - Altit & Baltit Forts",
+    "emoji": "🏰",
     "description": "Ancient forts with rich history and architecture. Experience Hunza's cultural heritage and best sunrise/sunset views from Duikar.",
     "price": 750,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "duration": 3,
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "packages": ["Hunza Valley Explorer", "Northern Gilgit-Baltistan Tour", "Grand GB Circuit"],
+    "activities": ["Cultural Tours", "Photography", "History"],
+    "altitude": "2,400m",
+    "temperature": "8°C - 22°C"
   },
   {
     "id": 3,
-    "name": "Skardu Valley - Shangrila Lake",
-    "description": "Mesmerizing alpine lake in a paradise-like valley. Explore the cold desert of Katpana and serene landscapes.",
+    "name": "Skardu Valley & Shangrila Lake",
+    "emoji": "💎",
+    "description": "Mesmerizing alpine lake in a paradise-like valley. Explore the cold desert of Katpana and serene landscapes at crystalline Kachura Lake.",
     "price": 920,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 3,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["Skardu Adventure Complete", "High Altitude Expedition", "Grand GB Circuit"],
+    "activities": ["Lake Tours", "Jeep Safari", "Photography"],
+    "altitude": "2,228m",
+    "temperature": "10°C - 20°C"
   },
   {
     "id": 4,
     "name": "Deosai Plains - Sheosar Lake",
-    "description": "One of the world's highest plateaus with diverse flora and fauna. Breathtaking mountain scenery and pristine nature.",
+    "emoji": "🌄",
+    "description": "One of the world's highest plateaus with diverse flora and fauna. Breathtaking mountain scenery and pristine nature at 'Land of the Gods'.",
     "price": 1050,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 4,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["High Altitude Expedition", "Grand GB Circuit"],
+    "activities": ["Alpine Trekking", "Lake Hiking", "Wildlife Watching"],
+    "altitude": "4,114m",
+    "temperature": "5°C - 15°C"
   },
   {
     "id": 5,
     "name": "Passu Cones & Gulmit",
+    "emoji": "⛰️",
     "description": "Dramatic mountain peaks, Pasu Glacier, and the thrilling Hussaini Suspension Bridge. Upper Hunza's most iconic destination.",
     "price": 800,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 2,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["Northern Gilgit-Baltistan Tour", "Grand GB Circuit"],
+    "activities": ["Bridge Walk", "Glacier Viewing", "Photography"],
+    "altitude": "2,600m",
+    "temperature": "8°C - 16°C"
   },
   {
     "id": 6,
     "name": "Naltar Valley - Alpine Lakes",
-    "description": "Three stunning lakes: Satrangi, Blue Lake, and Bodlok. Alpine forests and world-class skiing resorts.",
+    "emoji": "🗻",
+    "description": "Three stunning lakes: Satrangi, Blue Lake, and Bodlok. Alpine forests and world-class skiing resorts in winter wonderland.",
     "price": 780,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "duration": 3,
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "packages": ["Naltar Lakes & Skiing", "Grand GB Circuit"],
+    "activities": ["Lake Trekking", "Skiing", "Photography"],
+    "altitude": "3,600m",
+    "temperature": "-5°C - 10°C (winter), 8°C - 15°C (summer)"
   },
   {
     "id": 7,
     "name": "Khunjerab Pass - World's Highest Border",
-    "description": "Experience the world's highest border crossing at 5,000+ meters. Spectacular mountain views and unique adventure.",
+    "emoji": "🚏",
+    "description": "Experience the world's highest border crossing at 5,000+ meters. Spectacular mountain views and unique adventure at the top of the world.",
     "price": 650,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 1,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["High Altitude Expedition", "Grand GB Circuit"],
+    "activities": ["High Altitude Driving", "Photography", "Border Visit"],
+    "altitude": "5,286m",
+    "temperature": "-10°C - 5°C"
   },
   {
     "id": 8,
     "name": "Phander Valley",
-    "description": "Deep blue river, trout fishing, and lush green landscapes. A serene haven in Ghizer District.",
+    "emoji": "🌊",
+    "description": "Deep blue river, trout fishing, and lush green landscapes. A serene haven in Ghizer District with pristine mountain scenery.",
     "price": 700,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 2,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["Northern Gilgit-Baltistan Tour"],
+    "activities": ["Trout Fishing", "River Tours", "Hiking"],
+    "altitude": "2,400m",
+    "temperature": "8°C - 18°C"
   },
   {
     "id": 9,
     "name": "Rakaposhi View Point",
-    "description": "Majestic views of Rakaposhi mountain. Perfect for photography and experiencing raw mountain beauty.",
+    "emoji": "⛰️",
+    "description": "Majestic views of Rakaposhi mountain (7,788m). Perfect for photography and experiencing raw mountain beauty from multiple vantage points.",
     "price": 550,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "duration": 1,
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "packages": ["Hunza Valley Explorer", "Northern Gilgit-Baltistan Tour"],
+    "activities": ["Photography", "Mountain Viewing", "Sunrise Tours"],
+    "altitude": "2,500m",
+    "temperature": "8°C - 20°C"
   },
   {
     "id": 10,
     "name": "Astore Valley - Rama Valley",
-    "description": "Lush green landscapes and surrounding alpine forests. A hidden gem with untouched natural beauty.",
+    "emoji": "🌲",
+    "description": "Lush green landscapes and surrounding alpine forests. A hidden gem with untouched natural beauty and pristine wilderness.",
     "price": 680,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "duration": 2,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "packages": ["Grand GB Circuit"],
+    "activities": ["Forest Trekking", "Nature Walks", "Photography"],
+    "altitude": "2,700m",
+    "temperature": "5°C - 15°C"
   },
   {
     "id": 11,

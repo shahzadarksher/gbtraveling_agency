@@ -10,14 +10,45 @@ async function loadDestinations() {
             destinations.forEach(destination => {
                 const card = document.createElement('div');
                 card.className = 'destination-card';
+                const imageUrl = destination.image || 'https://via.placeholder.com/300x200';
+                const packages = destination.packages ? destination.packages.map(pkg => `<span class="package-tag">${pkg}</span>`).join('') : '';
+                const activities = destination.activities ? destination.activities.join(', ') : 'Various activities';
+                
                 card.innerHTML = `
-                    <div class="destination-image">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="destination-image" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center; height: 250px;">
+                        <span class="destination-difficulty">${destination.emoji || '⛰️'}</span>
                     </div>
                     <div class="destination-content">
                         <h3>${destination.name}</h3>
-                        <p>${destination.description}</p>
-                        <div class="destination-price">$${destination.price}</div>
+                        <p>${destination.description || ''}</p>
+                        
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-mountain"></i> <strong>${destination.altitude || 'N/A'}</strong>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i> <strong>${destination.temperature || 'N/A'}</strong>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i> <strong>${destination.duration || 'N/A'} days</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="activities-section">
+                            <strong>Activities:</strong> ${activities}
+                        </div>
+                        
+                        ${packages ? `<div class="packages-section">
+                            <strong>Available in Packages:</strong>
+                            <div class="packages-container">
+                                ${packages}
+                            </div>
+                        </div>` : ''}
+                        
+                        <div class="destination-footer">
+                            <div class="destination-price">from $${destination.price}</div>
+                            <button class="destination-btn" onclick="document.location='booking.html'"><i class="fas fa-calendar-check"></i> Book</button>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -140,10 +171,37 @@ function handleSearchForm() {
 // Handle package and destination buttons
 function handleBookButtons() {
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('package-btn')) {
-            alert('Booking feature coming soon!');
+        if (e.target.classList.contains('package-btn') || e.target.classList.contains('destination-btn')) {
+            const packageName = e.target.closest('.package-card')?.querySelector('.package-title')?.textContent || 
+                               e.target.closest('.destination-card')?.querySelector('h3')?.textContent;
+            // Redirect to booking page
+            window.location.href = 'booking.html?package=' + encodeURIComponent(packageName || '');
         }
     });
+}
+
+// Get booking parameter from URL
+function getBookingPackage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const package = urlParams.get('package');
+    if (package && document.getElementById('travelType')) {
+        const select = document.getElementById('travelType');
+        // Find and select the matching package
+        for (let option of select.options) {
+            if (option.textContent.includes(package)) {
+                select.value = option.value;
+                updatePrice();
+                break;
+            }
+        }
+    }
+}
+
+// Load booking data from localStorage
+function loadBookingHistory() {
+    const bookings = JSON.parse(localStorage.getItem('gbTravelingBookings')) || [];
+    console.log('Booking History:', bookings);
+    return bookings;
 }
 
 // Initialize on page load
@@ -154,4 +212,15 @@ document.addEventListener('DOMContentLoaded', function() {
     handleNewsletterForm();
     handleSearchForm();
     handleBookButtons();
+    getBookingPackage(); // Initialize booking if coming from package link
+    
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    }
+});
 });

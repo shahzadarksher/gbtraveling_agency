@@ -1,0 +1,44 @@
+[
+  {
+    "id": "BK001",
+    "packageName": "Hunza Valley Explorer",
+    "packageId": 1,
+    "customerName": "Ahmed Khan",
+    "email": "ahmed@example.com",
+    "phone": "+923001234567",
+    "numberOfPeople": 2,
+    "startDate": "2026-05-15",
+    "duration": 5,
+    "totalPrice": 3700,
+    "status": "Confirmed",
+    "bookingDate": "2026-04-20"
+  },
+  {
+    "id": "BK002",
+    "packageName": "Skardu Adventure Complete",
+    "packageId": 2,
+    "customerName": "Fatima Ali",
+    "email": "fatima@example.com",
+    "phone": "+923009876543",
+    "numberOfPeople": 4,
+    "startDate": "2026-06-10",
+    "duration": 7,
+    "totalPrice": 8600,
+    "status": "Pending",
+    "bookingDate": "2026-04-22"
+  },
+  {
+    "id": "BK003",
+    "packageName": "High Altitude Expedition",
+    "packageId": 3,
+    "customerName": "Hassan Malik",
+    "email": "hassan@example.com",
+    "phone": "+923015555555",
+    "numberOfPeople": 1,
+    "startDate": "2026-07-01",
+    "duration": 8,
+    "totalPrice": 2450,
+    "status": "Confirmed",
+    "bookingDate": "2026-04-19"
+  }
+]
