@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - GB Traveling Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .team-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .team-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .team-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .team-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-info {
+            padding: 25px;
+        }
+        .team-info h3 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .team-title {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .team-experience {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .team-bio {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .team-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .expertise-tag {
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="navbar-content">
+            <div class="logo"><i class="fas fa-globe"></i> GB Traveling</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="nav-booking">Book Now</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Meet Our Expert Team</h1>
+            <p class="hero-subtitle">Meet the passionate professionals dedicated to making your adventure unforgettable</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Team Section -->
+    <div class="team-container">
+        <div class="team-header">
+            <h2>Experienced & Certified Professionals</h2>
+            <p>Our team brings decades of combined experience in mountain tourism and adventure travel</p>
+        </div>
+        <div class="team-grid" id="teamGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GB Traveling Agency</h4>
+                <p>Your premier travel agency for Gilgit-Baltistan adventures.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GB Traveling Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadTeam() {
+            try {
+                const response = await fetch('data/team.json');
+                const team = await response.json();
+                const grid = document.getElementById('teamGrid');
+                
+                team.forEach(member => {
+                    const memberDiv = document.createElement('div');
+                    memberDiv.className = 'team-member';
+                    const expertise = member.expertise.map(e => `<span class="expertise-tag">${e}</span>`).join('');
+                    
+                    memberDiv.innerHTML = `
+                        <div class="team-image">
+                            <img src="${member.image}" alt="${member.name}">
+                        </div>
+                        <div class="team-info">
+                            <h3>${member.name}</h3>
+                            <div class="team-title">${member.title}</div>
+                            <div class="team-experience"><i class="fas fa-briefcase"></i> ${member.experience} experience</div>
+                            <p class="team-bio">${member.bio}</p>
+                            <div class="team-expertise">${expertise}</div>
+                        </div>
+                    `;
+                    grid.appendChild(memberDiv);
+                });
+            } catch (error) {
+                console.error('Error loading team:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTeam);
+    </script>
+</body>
+</html>

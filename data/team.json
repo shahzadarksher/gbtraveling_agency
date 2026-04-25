@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Karim Ahmed",
+    "title": "Senior Mountain Guide",
+    "experience": "15 years",
+    "expertise": ["Mountaineering", "High Altitude Trekking", "Rock Climbing"],
+    "bio": "Expert in Karakoram mountain range with multiple successful summits. Certified IFMGA guide.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "Fatima Nazir",
+    "title": "Cultural Tourism Expert",
+    "experience": "12 years",
+    "expertise": ["Cultural Tours", "Local Communities", "Heritage Sites"],
+    "bio": "Passionate about sharing Balti and Hunza cultures. Speaks 5 languages fluently.",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "Hassan Ali",
+    "title": "Adventure Activity Coordinator",
+    "experience": "10 years",
+    "expertise": ["Skiing", "Rock Climbing", "Jeep Safari", "Water Sports"],
+    "bio": "Certified in multiple adventure sports. Ensures safety and maximum fun for all participants.",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Aisha Khan",
+    "title": "High Altitude Medicine Specialist",
+    "experience": "8 years",
+    "expertise": ["Altitude Acclimatization", "Emergency Response", "Health & Safety"],
+    "bio": "Medical doctor trained in high altitude medicine. Ensures everyone's health and safety.",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop"
+  },
+  {
+    "id": 5,
+    "name": "Muhammad Hassan",
+    "title": "Logistics & Operations Manager",
+    "experience": "9 years",
+    "expertise": ["Tour Planning", "Logistics", "Customer Service"],
+    "bio": "Ensures every trip runs smoothly with perfect coordination and attention to detail.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop"
+  },
+  {
+    "id": 6,
+    "name": "Sofia Malik",
+    "title": "Photography & Media Manager",
+    "experience": "7 years",
+    "expertise": ["Professional Photography", "Videography", "Media Production"],
+    "bio": "Captures unforgettable moments and creates beautiful memories of your adventure.",
+    "image": "https://images.unsplash.com/photo-1535727066063-6f89f1b2938f?w=300&h=300&fit=crop"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Hassan",
+    "destination": "Hunza Valley Explorer",
+    "rating": 5,
+    "review": "Absolutely amazing experience! The guides were knowledgeable, the scenery was breathtaking, and every detail was perfectly organized. I'll definitely book with GB Traveling again!",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    "date": "April 2026"
+  },
+  {
+    "id": 2,
+    "name": "Fatima Khan",
+    "destination": "Skardu Adventure Complete",
+    "rating": 5,
+    "review": "This was the trip of a lifetime! From stunning Shangrila Lake to the cultural experiences in local villages, everything was exceptional. Highly recommended!",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+    "date": "March 2026"
+  },
+  {
+    "id": 3,
+    "name": "Muhammad Ali",
+    "destination": "High Altitude Expedition",
+    "rating": 5,
+    "review": "The Deosai Plains exceeded all my expectations. The camping experience and the guides' expertise made it unforgettable. Worth every penny!",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
+    "date": "February 2026"
+  },
+  {
+    "id": 4,
+    "name": "Sara Ali",
+    "destination": "Naltar Lakes & Skiing",
+    "rating": 5,
+    "review": "Perfect winter getaway! The skiing was fantastic and the views were incredible. The team made us feel very safe and comfortable throughout.",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    "date": "January 2026"
+  },
+  {
+    "id": 5,
+    "name": "Hassan Malik",
+    "destination": "Grand GB Circuit",
+    "rating": 5,
+    "review": "14 days of pure adventure! Visiting 5 regions, meeting amazing people, and witnessing the most beautiful landscapes. Cannot thank GB Traveling enough!",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    "date": "December 2025"
+  },
+  {
+    "id": 6,
+    "name": "Amina Hussain",
+    "destination": "Northern Gilgit-Baltistan Tour",
+    "rating": 5,
+    "review": "Fantastic organization and amazing customer service. Every moment was special from Rakaposhi views to Attabad Lake. Highly professional team!",
+    "image": "https://images.unsplash.com/photo-1535727066063-6f89f1b2938f?w=150&h=150&fit=crop",
+    "date": "November 2025"
+  }
+]

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - GB Traveling Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .gallery-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .gallery-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-overlay i {
+            font-size: 2.5em;
+            color: white;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            padding: 20px;
+        }
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="navbar-content">
+            <div class="logo"><i class="fas fa-globe"></i> GB Traveling</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="nav-booking">Book Now</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Photo Gallery</h1>
+            <p class="hero-subtitle">Stunning views from our adventures in Gilgit-Baltistan</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2>Explore Our Photo Gallery</h2>
+            <p>Click on any image to view it in full size</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-image" id="lightboxImage" src="">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GB Traveling Agency</h4>
+                <p>Your premier travel agency for Gilgit-Baltistan adventures.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GB Traveling Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const galleryImages = [
+            { title: 'Hunza Valley', image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80' },
+            { title: 'Attabad Lake', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Mountain Peak', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Alpine Meadow', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Sunset View', image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80' },
+            { title: 'Glacier Lake', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Valley Landscape', image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80' },
+            { title: 'Mountain Range', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Forest Trail', image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80' },
+            { title: 'River Canyon', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
+            { title: 'Snow Peak', image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80' },
+            { title: 'Stone Bridge', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }
+        ];
+
+        function loadGallery() {
+            const grid = document.getElementById('galleryGrid');
+            galleryImages.forEach((img, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.style.backgroundImage = `url('${img.image}')`;
+                item.innerHTML = `
+                    <div class="gallery-overlay" onclick="openLightbox('${img.image}')">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        function openLightbox(image) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = image;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadGallery);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

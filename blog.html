@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - GB Traveling Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .blog-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .blog-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .blog-meta {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .blog-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .blog-btn:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="navbar-content">
+            <div class="logo"><i class="fas fa-globe"></i> GB Traveling</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="nav-booking">Book Now</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Travel Blog & Guides</h1>
+            <p class="hero-subtitle">Tips, insights, and stories from our mountain adventures</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Blog Section -->
+    <div class="blog-container">
+        <div class="blog-header">
+            <h2>Latest from Our Blog</h2>
+            <p>Discover travel tips, destination guides, and adventure stories</p>
+        </div>
+        <div class="blog-grid" id="blogGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GB Traveling Agency</h4>
+                <p>Your premier travel agency for Gilgit-Baltistan adventures.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GB Traveling Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadBlog() {
+            try {
+                const response = await fetch('data/blog.json');
+                const blogPosts = await response.json();
+                const grid = document.getElementById('blogGrid');
+                
+                blogPosts.forEach(post => {
+                    const postDiv = document.createElement('div');
+                    postDiv.className = 'blog-card';
+                    postDiv.innerHTML = `
+                        <div class="blog-image" style="background-image: url('${post.image}');"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">${post.category}</span>
+                            <h3 class="blog-title">${post.title}</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-user"></i> ${post.author} | <i class="fas fa-calendar"></i> ${post.date}
+                            </div>
+                            <p class="blog-excerpt">${post.excerpt}</p>
+                            <a href="#" class="blog-btn">Read More →</a>
+                        </div>
+                    `;
+                    grid.appendChild(postDiv);
+                });
+            } catch (error) {
+                console.error('Error loading blog:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBlog);
+    </script>
+</body>
+</html>

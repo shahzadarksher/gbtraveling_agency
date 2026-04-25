@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - GB Traveling Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .faq-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        .faq-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            padding: 20px;
+            background: #f9fafb;
+            display: none;
+            line-height: 1.8;
+            color: #555;
+        }
+        .faq-answer.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="navbar-content">
+            <div class="logo"><i class="fas fa-globe"></i> GB Traveling</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="nav-booking">Book Now</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Frequently Asked Questions</h1>
+            <p class="hero-subtitle">Find answers to common questions about our tours and services</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2>Have a Question?</h2>
+            <p>Browse our FAQ or contact us directly for more information</p>
+        </div>
+        <div id="faqGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GB Traveling Agency</h4>
+                <p>Your premier travel agency for Gilgit-Baltistan adventures.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> info@gbtraveling.pk</p>
+                <p><i class="fas fa-phone"></i> +92-581-XXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GB Traveling Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadFAQ() {
+            try {
+                const response = await fetch('data/faq.json');
+                const faqItems = await response.json();
+                const grid = document.getElementById('faqGrid');
+                
+                faqItems.forEach((item, index) => {
+                    const faqDiv = document.createElement('div');
+                    faqDiv.className = 'faq-item';
+                    faqDiv.innerHTML = `
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>${item.question}</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>${item.answer}</p>
+                        </div>
+                    `;
+                    grid.appendChild(faqDiv);
+                });
+            } catch (error) {
+                console.error('Error loading FAQ:', error);
+            }
+        }
+
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            
+            answer.classList.toggle('active');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadFAQ);
+    </script>
+</body>
+</html>

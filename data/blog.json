@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Guide to Hunza Valley: The Land of Longevity",
+    "author": "Fatima Khan",
+    "date": "April 15, 2026",
+    "category": "Destination Guide",
+    "excerpt": "Discover the secrets of Hunza Valley, home to some of the world's oldest and healthiest people. Learn about their lifestyle, culture, and why this paradise deserves a place on your travel bucket list.",
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "content": "Hunza Valley is one of the most remarkable destinations in Pakistan..."
+  },
+  {
+    "id": 2,
+    "title": "Trekking the Deosai Plains: Land of the Gods",
+    "author": "Karim Ahmed",
+    "date": "April 10, 2026",
+    "category": "Adventure Tips",
+    "excerpt": "Experience the world's highest and only alpine meadowland. This comprehensive guide covers routes, difficulty levels, best season, and what to expect when you reach this heavenly plateau.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "content": "The Deosai Plains are a unique ecosystem..."
+  },
+  {
+    "id": 3,
+    "title": "Skardu: Gateway to High Mountains",
+    "author": "Hassan Ali",
+    "date": "April 5, 2026",
+    "category": "Destination Guide",
+    "excerpt": "Explore Skardu's pristine lakes, ancient Buddhist heritage, and dramatic mountain scenery. Learn about Shangrila Resort, Katpana Cold Desert, and more.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "content": "Skardu is the gateway to Gilgit-Baltistan's most spectacular landscapes..."
+  },
+  {
+    "id": 4,
+    "title": "Winter in Naltar: Skiing in the Himalayas",
+    "author": "Sofia Malik",
+    "date": "March 28, 2026",
+    "category": "Seasonal Guide",
+    "excerpt": "Discover world-class skiing slopes in Naltar Valley. Learn about ski resorts, lessons for beginners, and breathtaking views during winter months.",
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "content": "Naltar Valley transforms into a winter wonderland..."
+  },
+  {
+    "id": 5,
+    "title": "Wildlife Photography in Gilgit-Baltistan",
+    "author": "Muhammad Hassan",
+    "date": "March 22, 2026",
+    "category": "Photography",
+    "excerpt": "Capture stunning wildlife moments: Brown bears on Deosai, Himalayan ibex, snow leopards, and diverse bird species. Best locations and techniques.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "content": "Gilgit-Baltistan is a paradise for wildlife photographers..."
+  },
+  {
+    "id": 6,
+    "title": "The Karakoram Highway: World's Most Dramatic Mountain Road",
+    "author": "Karim Ahmed",
+    "date": "March 15, 2026",
+    "category": "Adventure Tips",
+    "excerpt": "Travel the legendary Karakoram Highway connecting ancient Silk Road routes. Learn about safety, best viewpoints, and what to expect on this epic journey.",
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "content": "The Karakoram Highway is one of the world's most dramatic mountain roads..."
+  },
+  {
+    "id": 7,
+    "title": "Cultural Immersion: Understanding Balti and Hunza Traditions",
+    "author": "Fatima Khan",
+    "date": "March 8, 2026",
+    "category": "Cultural",
+    "excerpt": "Deep dive into the unique cultures, traditions, customs, and hospitality of Gilgit-Baltistan's indigenous peoples.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "content": "The people of Gilgit-Baltistan have a rich cultural heritage..."
+  },
+  {
+    "id": 8,
+    "title": "High Altitude Acclimatization: Expert Tips from Our Medical Team",
+    "author": "Dr. Aisha Khan",
+    "date": "March 1, 2026",
+    "category": "Health & Safety",
+    "excerpt": "Learn how to safely adjust to high altitude environments. Practical advice on hydration, nutrition, exercise, and recognizing symptoms.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "content": "Altitude sickness is a common concern for trekkers..."
+  }
+]
