@@ -72,6 +72,7 @@ async function loadPackages() {
             packages.slice(0, 3).forEach(pkg => {
                 const card = document.createElement('div');
                 card.className = 'package-card';
+                const locations = pkg.locations ? pkg.locations.map(loc => `<span class="location-tag"><i class="fas fa-map-marker-alt"></i> ${loc}</span>`).join('') : '';
                 card.innerHTML = `
                     <div class="package-image">
                         <i class="fas fa-suitcase"></i>
@@ -79,6 +80,7 @@ async function loadPackages() {
                     <div class="package-content">
                         <h3 class="package-title">${pkg.name}</h3>
                         <p class="package-description">${pkg.description}</p>
+                        ${locations ? `<div class="package-locations">${locations}</div>` : ''}
                         <div class="package-details">
                             <div class="detail-item">
                                 <strong>${pkg.duration}</strong>
@@ -104,6 +106,7 @@ async function loadPackages() {
             packages.forEach(pkg => {
                 const card = document.createElement('div');
                 card.className = 'package-card';
+                const locations = pkg.locations ? pkg.locations.map(loc => `<span class="location-tag"><i class="fas fa-map-marker-alt"></i> ${loc}</span>`).join('') : '';
                 card.innerHTML = `
                     <div class="package-image">
                         <i class="fas fa-suitcase"></i>
@@ -111,6 +114,7 @@ async function loadPackages() {
                     <div class="package-content">
                         <h3 class="package-title">${pkg.name}</h3>
                         <p class="package-description">${pkg.description}</p>
+                        ${locations ? `<div class="package-locations">${locations}</div>` : ''}
                         <div class="package-details">
                             <div class="detail-item">
                                 <strong>${pkg.duration}</strong>

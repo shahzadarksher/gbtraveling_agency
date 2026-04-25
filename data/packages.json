@@ -5,7 +5,8 @@
     "description": "Experience the beauty of Hunza Valley with visits to Attabad Lake, Altit Fort, and Baltit Fort. Includes boating and cultural experiences.",
     "duration": 5,
     "price": 1850,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Attabad Lake", "Hunza Valley Forts", "Rakaposhi View Point"]
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "description": "Complete Skardu experience: Shangrila Lake, Katpana Cold Desert, Upper Kachura Lake, and breathtaking mountain views.",
     "duration": 7,
     "price": 2150,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Skardu Valley", "Shangrila Lake", "Katpana Cold Desert"]
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "description": "Challenge yourself with Deosai Plains, Sheosar Lake, and Khunjerab Pass - the world's highest border crossing.",
     "duration": 8,
     "price": 2450,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Deosai Plains", "Khunjerab Pass", "Sheosar Lake"]
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "description": "Explore three alpine lakes and enjoy skiing on world-class slopes in Naltar Valley. Perfect for adventure and nature lovers.",
     "duration": 6,
     "price": 1750,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Naltar Valley", "Alpine Lakes", "Satrangi Lake"]
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "description": "Visit Passu Cones, Hussaini Suspension Bridge, Gulmit, Pasu Glacier, and Rakaposhi View Point.",
     "duration": 6,
     "price": 1950,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Passu Cones & Gulmit", "Hussaini Bridge", "Pasu Glacier"]
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "description": "The ultimate Gilgit-Baltistan experience covering Hunza, Skardu, Deosai, Naltar, and Khunjerab Pass.",
     "duration": 14,
     "price": 3850,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Hunza Valley", "Skardu", "Deosai Plains", "Naltar Valley", "Khunjerab Pass"]
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "description": "Discover the serene beauty of Phander Valley and Astore Valley with trout fishing and alpine forest trekking.",
     "duration": 5,
     "price": 1450,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Phander Valley", "Astore Valley", "Rama Valley"]
   },
   {
     "id": 8,
@@ -61,15 +68,17 @@
     "description": "Capture the magic of GB with professional photo tours covering Attabad Lake, Passu Cones, Deosai, and mountain peaks.",
     "duration": 10,
     "price": 2750,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Attabad Lake", "Passu Cones", "Deosai Plains", "Mountain Peaks"]
   },
   {
     "id": 9,
-    "name": "Hunza Valley Explorer",
+    "name": "Hunza Valley Cultural Tour",
     "description": "Journey through emerald valleys and ancient fortresses, discover the secret to longevity in Hunza's orchards, and witness the legendary beauty of Rakaposhi Peak from multiple perspectives.",
     "duration": 7,
     "price": 1950,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Hunza Valley", "Baltit Fort", "Rakaposhi", "Apricot Orchards"]
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "description": "Stand at the base of the world's 9th highest peak and the deadliest mountain. Summit preparation, alpine acclimatization, and the raw power of Nanga Parbat awaits.",
     "duration": 14,
     "price": 4200,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Fairy Meadows", "Nanga Parbat Base Camp", "Alpine Meadows"]
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "description": "Discover hidden Gilgit-Baltistan through a restored palace, ancient villages, and the authentic warmth of Balti hospitality. Perfect for culturally-conscious travelers seeking authentic experiences.",
     "duration": 6,
     "price": 1650,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Khaplu", "Khaplu Palace", "Balti Villages", "Machulo Peak"]
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "description": "Trek across the 'Land of the Gods' at 4,272m where wildflowers carpet the world's highest meadowland and brown bears roam wild. High-altitude adventure meets untouched wilderness.",
     "duration": 8,
     "price": 2100,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Deosai Plains", "Sheosar Lake", "Surgam Pass", "Alpine Wildlife"]
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "description": "Trek through Shigar Valley's hidden glaciers, explore ancient mountain fortresses, and access the world's most formidable climbing peaks. A technical expedition for serious mountaineers.",
     "duration": 12,
     "price": 3500,
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "locations": ["Shigar Valley", "Shigar Fort", "Brogil Pass", "Glaciers"]
   },
   {
     "id": 14,
@@ -109,6 +122,7 @@
     "description": "Jeep safari to the world's highest motorable pass, explore ancient Buddhist monasteries, and understand the strategic geography where three nations meet the Siachen Glacier.",
     "duration": 9,
     "price": 2300,
-    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=80",
+    "locations": ["Nubra Valley", "Khardung La Pass", "Diskit Monastery", "Siachen Gateway"]
   }
 ]
