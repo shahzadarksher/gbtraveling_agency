@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - GB Traveling Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .admin-container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 2px solid #e74c3c; margin-bottom: 30px; }
+        .admin-header h1 { color: #2c3e50; font-size: 2em; }
+        .admin-logo { display: flex; align-items: center; gap: 10px; color: #e74c3c; font-size: 1.5em; font-weight: 700; }
+        .admin-tabs { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tab-btn { padding: 12px 25px; border: 2px solid #e74c3c; background: white; color: #e74c3c; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab-btn.active { background: #e74c3c; color: white; }
+        .tab-btn:hover:not(.active) { background: #fce4e4; }
+        .admin-panel { display: none; }
+        .admin-panel.active { display: block; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .panel-header h2 { color: #2c3e50; }
+        .add-btn { background: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .add-btn:hover { background: #229954; }
+        .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+        .item-card { background: white; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); overflow: hidden; }
+        .item-image { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .item-image img { width: 100%; height: 200px; object-fit: cover; }
+        .image-overlay { position: absolute; top: 10px; right: 10px; display: flex; gap: 5px; }
+        .image-btn { background: rgba(0,0,0,0.7); color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 0.9em; }
+        .image-btn:hover { background: rgba(0,0,0,0.9); }
+        .item-content { padding: 20px; }
+        .item-content h3 { color: #2c3e50; margin-bottom: 10px; }
+        .item-content p { color: #666; font-size: 0.9em; margin-bottom: 15px; line-height: 1.5; }
+        .item-meta { display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+        .meta-item { display: flex; align-items: center; gap: 5px; color: #888; font-size: 0.85em; }
+        .meta-item i { color: #e74c3c; }
+        .item-price { font-size: 1.3em; font-weight: 700; color: #e74c3c; margin-bottom: 15px; }
+        .item-actions { display: flex; gap: 10px; }
+        .edit-btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; flex: 1; }
+        .delete-btn { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; flex: 1; }
+        .edit-btn:hover { background: #2980b9; }
+        .delete-btn:hover { background: #c0392b; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; }
+        .modal.active { display: flex; align-items: flex-start; justify-content: center; padding: 50px 20px; }
+        .modal-content { background: white; border-radius: 10px; padding: 30px; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #e74c3c; }
+        .modal-header h2 { color: #2c3e50; }
+        .close-btn { background: none; border: none; font-size: 1.5em; cursor: pointer; color: #888; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; font-size: 1em; }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #e74c3c; }
+        .form-full { grid-column: 1 / -1; }
+        .modal-actions { display: flex; gap: 15px; margin-top: 25px; }
+        .save-btn { background: #27ae60; color: white; border: none; padding: 14px 30px; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: 600; flex: 1; }
+        .cancel-btn { background: #95a5a6; color: white; border: none; padding: 14px 30px; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: 600; flex: 1; }
+        .save-btn:hover { background: #229954; }
+        .cancel-btn:hover { background: #7f8c8d; }
+        .image-upload-area { border: 2px dashed #ddd; padding: 30px; text-align: center; border-radius: 10px; margin-top: 10px; }
+        .image-upload-area:hover { border-color: #e74c3c; }
+        .image-preview { max-width: 100%; max-height: 200px; margin-top: 15px; border-radius: 5px; }
+        .export-section { background: white; padding: 20px; border-radius: 10px; margin-top: 30px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        .export-section h3 { margin-bottom: 15px; color: #2c3e50; }
+        .export-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+        .export-btn { background: #9b59b6; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: 600; }
+        .export-btn:hover { background: #8e44ad; }
+        .empty-state { text-align: center; padding: 60px 20px; color: #888; }
+        .empty-state i { font-size: 4em; margin-bottom: 20px; color: #ddd; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <div class="admin-logo">
+                <i class="fas fa-globe"></i> GB Traveling Admin
+            </div>
+            <div>
+                <span style="color: #666; margin-right: 15px;">Last saved: <span id="lastSaved">-</span></span>
+                <button class="add-btn" onclick="exportAllData()"><i class="fas fa-download"></i> Export JSON</button>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="switchTab('destinations')"><i class="fas fa-map-marker-alt"></i> Destinations</button>
+            <button class="tab-btn" onclick="switchTab('packages')"><i class="fas fa-suitcase"></i> Packages</button>
+            <button class="tab-btn" onclick="switchTab('testimonials')"><i class="fas fa-star"></i> Testimonials</button>
+        </div>
+
+        <!-- Destinations Panel -->
+        <div class="admin-panel active" id="destinationsPanel">
+            <div class="panel-header">
+                <h2><i class="fas fa-map-marker-alt"></i> Manage Destinations</h2>
+                <button class="add-btn" onclick="openModal('destination', 0)"><i class="fas fa-plus"></i> Add Destination</button>
+            </div>
+            <div class="items-grid" id="destinationsGrid"></div>
+        </div>
+
+        <!-- Packages Panel -->
+        <div class="admin-panel" id="packagesPanel">
+            <div class="panel-header">
+                <h2><i class="fas fa-suitcase"></i> Manage Packages</h2>
+                <button class="add-btn" onclick="openModal('package', 0)"><i class="fas fa-plus"></i> Add Package</button>
+            </div>
+            <div class="items-grid" id="packagesGrid"></div>
+        </div>
+
+        <!-- Testimonials Panel -->
+        <div class="admin-panel" id="testimonialsPanel">
+            <div class="panel-header">
+                <h2><i class="fas fa-star"></i> Manage Testimonials</h2>
+                <button class="add-btn" onclick="openModal('testimonial', 0)"><i class="fas fa-plus"></i> Add Testimonial</button>
+            </div>
+            <div class="items-grid" id="testimonialsGrid"></div>
+        </div>
+
+        <div class="export-section">
+            <h3><i class="fas fa-database"></i> Data Management</h3>
+            <p style="margin-bottom: 15px; color: #666;">Export all data as JSON files to update the website. Click export to download all data.</p>
+            <div class="export-btns">
+                <button class="export-btn" onclick="exportData('destinations')"><i class="fas fa-file-export"></i> Export Destinations</button>
+                <button class="export-btn" onclick="exportData('packages')"><i class="fas fa-file-export"></i> Export Packages</button>
+                <button class="export-btn" onclick="exportData('testimonials')"><i class="fas fa-file-export"></i> Export Testimonials</button>
+                <button class="export-btn" style="background: #e74c3c;" onclick="clearAllData()"><i class="fas fa-trash"></i> Clear All Data</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Edit Item</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="itemId">
+                <input type="hidden" id="itemType">
+                <div class="form-grid" id="formFields"></div>
+                <div class="modal-actions">
+                    <button type="button" class="save-btn" onclick="saveItem()"><i class="fas fa-save"></i> Save Changes</button>
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-image"></i> Update Image</h2>
+                <button class="close-btn" onclick="closeImageModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="text" id="imageUrl" placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="form-group">
+                <label>Or Upload Image</label>
+                <input type="file" id="imageFile" accept="image/*" onchange="previewImage(this)">
+                <img id="imagePreview" class="image-preview" style="display: none;">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="save-btn" onclick="saveImage()"><i class="fas fa-save"></i> Save Image</button>
+                <button type="button" class="cancel-btn" onclick="closeImageModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let destinations = [];
+        let packages = [];
+        let testimonials = [];
+        let currentEditId = null;
+        let currentEditType = null;
+        let currentImageId = null;
+
+        // Load data from localStorage or JSON files
+        async function loadData() {
+            const storedDest = localStorage.getItem('gbDestinations');
+            const storedPkg = localStorage.getItem('gbPackages');
+            const storedTest = localStorage.getItem('gbTestimonials');
+
+            if (storedDest) {
+                destinations = JSON.parse(storedDest);
+            } else {
+                const res = await fetch('data/destinations.json');
+                destinations = await res.json();
+            }
+
+            if (storedPkg) {
+                packages = JSON.parse(storedPkg);
+            } else {
+                const res = await fetch('data/packages.json');
+                packages = await res.json();
+            }
+
+            if (storedTest) {
+                testimonials = JSON.parse(storedTest);
+            } else {
+                const res = await fetch('data/testimonials.json');
+                testimonials = await res.json();
+            }
+
+            renderAll();
+            updateLastSaved();
+        }
+
+        function renderAll() {
+            renderDestinations();
+            renderPackages();
+            renderTestimonials();
+        }
+
+        function renderDestinations() {
+            const grid = document.getElementById('destinationsGrid');
+            if (destinations.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-map-marker-alt"></i><h3>No destinations yet</h3><p>Click "Add Destination" to create one.</p></div>';
+                return;
+            }
+            grid.innerHTML = destinations.map(d => `
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="${d.image || 'https://via.placeholder.com/400x200'}" alt="${d.name}">
+                        <div class="image-overlay">
+                            <button class="image-btn" onclick="openImageModal(${d.id})"><i class="fas fa-camera"></i></button>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <h3>${d.name}</h3>
+                        <p>${d.description || ''}</p>
+                        <div class="item-meta">
+                            <span class="meta-item"><i class="fas fa-mountain"></i> ${d.altitude || 'N/A'}</span>
+                            <span class="meta-item"><i class="fas fa-clock"></i> ${d.duration || 'N/A'} days</span>
+                            <span class="meta-item"><i class="fas fa-thermometer-half"></i> ${d.temperature || 'N/A'}</span>
+                        </div>
+                        <div class="item-price">from $${d.price}</div>
+                        <div class="item-actions">
+                            <button class="edit-btn" onclick="openModal('destination', ${d.id})"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-btn" onclick="deleteItem('destination', ${d.id})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPackages() {
+            const grid = document.getElementById('packagesGrid');
+            if (packages.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-suitcase"></i><h3>No packages yet</h3><p>Click "Add Package" to create one.</p></div>';
+                return;
+            }
+            grid.innerHTML = packages.map(p => `
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="${p.image || 'https://via.placeholder.com/400x200'}" alt="${p.name}">
+                        <div class="image-overlay">
+                            <button class="image-btn" onclick="openImageModal('package', ${p.id})"><i class="fas fa-camera"></i></button>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <h3>${p.name}</h3>
+                        <p>${p.description || ''}</p>
+                        <div class="item-meta">
+                            <span class="meta-item"><i class="fas fa-clock"></i> ${p.duration} days</span>
+                            <span class="meta-item"><i class="fas fa-star"></i> ${p.rating || '4.8'}</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> ${p.category || 'General'}</span>
+                        </div>
+                        <div class="item-price">$${p.price}</div>
+                        <div class="item-actions">
+                            <button class="edit-btn" onclick="openModal('package', ${p.id})"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-btn" onclick="deleteItem('package', ${p.id})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+            if (testimonials.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-star"></i><h3>No testimonials yet</h3><p>Click "Add Testimonial" to create one.</p></div>';
+                return;
+            }
+            grid.innerHTML = testimonials.map(t => `
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user-circle" style="font-size: 4em; color: white;"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>${t.name}</h3>
+                        <p>"${t.review}"</p>
+                        <div class="item-meta">
+                            <span class="meta-item"><i class="fas fa-map-marker-alt"></i> ${t.destination}</span>
+                            <span class="meta-item"><i class="fas fa-star"></i> ${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> ${t.date}</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="edit-btn" onclick="openModal('testimonial', ${t.id})"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-btn" onclick="deleteItem('testimonial', ${t.id})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tab + 'Panel').classList.add('active');
+        }
+
+        function openModal(type, id) {
+            currentEditId = id;
+            currentEditType = type;
+            const modal = document.getElementById('editModal');
+            const title = document.getElementById('modalTitle');
+            const fields = document.getElementById('formFields');
+            let item = null;
+            let isNew = id === 0;
+
+            if (type === 'destination') {
+                item = isNew ? { id: Date.now(), name: '', description: '', price: 0, duration: 1, altitude: '', temperature: '', image: '', activities: [], packages: [] } : destinations.find(d => d.id === id);
+                title.innerHTML = isNew ? '<i class="fas fa-plus"></i> Add Destination' : '<i class="fas fa-edit"></i> Edit Destination';
+                fields.innerHTML = `
+                    <div class="form-group"><label>Name *</label><input type="text" id="f_name" value="${item.name || ''}" required></div>
+                    <div class="form-group"><label>Price ($) *</label><input type="number" id="f_price" value="${item.price || 0}" required></div>
+                    <div class="form-group"><label>Duration (days)</label><input type="number" id="f_duration" value="${item.duration || 1}"></div>
+                    <div class="form-group"><label>Altitude</label><input type="text" id="f_altitude" value="${item.altitude || ''}" placeholder="e.g., 2,400m"></div>
+                    <div class="form-group"><label>Temperature</label><input type="text" id="f_temperature" value="${item.temperature || ''}" placeholder="e.g., 10°C - 22°C"></div>
+                    <div class="form-group"><label>Emoji</label><input type="text" id="f_emoji" value="${item.emoji || ''}" placeholder="e.g., 🏔️"></div>
+                    <div class="form-group form-full"><label>Description</label><textarea id="f_description">${item.description || ''}</textarea></div>
+                    <div class="form-group form-full"><label>Image URL</label><input type="text" id="f_image" value="${item.image || ''}" placeholder="https://..."></div>
+                `;
+            } else if (type === 'package') {
+                item = isNew ? { id: Date.now(), name: '', description: '', price: 0, duration: 1, rating: 4.8, category: '', image: '', locations: [] } : packages.find(p => p.id === id);
+                title.innerHTML = isNew ? '<i class="fas fa-plus"></i> Add Package' : '<i class="fas fa-edit"></i> Edit Package';
+                fields.innerHTML = `
+                    <div class="form-group"><label>Name *</label><input type="text" id="f_name" value="${item.name || ''}" required></div>
+                    <div class="form-group"><label>Price ($) *</label><input type="number" id="f_price" value="${item.price || 0}" required></div>
+                    <div class="form-group"><label>Duration (days) *</label><input type="number" id="f_duration" value="${item.duration || 1}" required></div>
+                    <div class="form-group"><label>Rating</label><input type="number" id="f_rating" value="${item.rating || 4.8}" step="0.1" max="5"></div>
+                    <div class="form-group"><label>Category</label><input type="text" id="f_category" value="${item.category || ''}" placeholder="e.g., Adventure, Cultural"></div>
+                    <div class="form-group form-full"><label>Description</label><textarea id="f_description">${item.description || ''}</textarea></div>
+                    <div class="form-group form-full"><label>Image URL</label><input type="text" id="f_image" value="${item.image || ''}" placeholder="https://..."></div>
+                `;
+            } else if (type === 'testimonial') {
+                item = isNew ? { id: Date.now(), name: '', review: '', rating: 5, destination: '', date: new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' }) } : testimonials.find(t => t.id === id);
+                title.innerHTML = isNew ? '<i class="fas fa-plus"></i> Add Testimonial' : '<i class="fas fa-edit"></i> Edit Testimonial';
+                fields.innerHTML = `
+                    <div class="form-group"><label>Name *</label><input type="text" id="f_name" value="${item.name || ''}" required></div>
+                    <div class="form-group"><label>Destination *</label><input type="text" id="f_destination" value="${item.destination || ''}" required></div>
+                    <div class="form-group"><label>Rating</label><select id="f_rating"><option value="5" ${item.rating === 5 ? 'selected' : ''}>★★★★★</option><option value="4" ${item.rating === 4 ? 'selected' : ''}>★★★★</option><option value="3" ${item.rating === 3 ? 'selected' : ''}>★★★</option><option value="2" ${item.rating === 2 ? 'selected' : ''}>★★</option><option value="1" ${item.rating === 1 ? 'selected' : ''}>★</option></select></div>
+                    <div class="form-group"><label>Date</label><input type="text" id="f_date" value="${item.date || ''}" placeholder="e.g., April 2026"></div>
+                    <div class="form-group form-full"><label>Review *</label><textarea id="f_review" required>${item.review || ''}</textarea></div>
+                `;
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('active');
+            currentEditId = null;
+            currentEditType = null;
+        }
+
+        function saveItem() {
+            const type = currentEditType;
+            let item = {};
+            const isNew = currentEditId === 0;
+
+            if (type === 'destination') {
+                item = {
+                    id: isNew ? Date.now() : currentEditId,
+                    name: document.getElementById('f_name').value,
+                    price: parseInt(document.getElementById('f_price').value) || 0,
+                    duration: parseInt(document.getElementById('f_duration').value) || 1,
+                    altitude: document.getElementById('f_altitude').value,
+                    temperature: document.getElementById('f_temperature').value,
+                    emoji: document.getElementById('f_emoji').value,
+                    description: document.getElementById('f_description').value,
+                    image: document.getElementById('f_image').value,
+                    activities: [],
+                    packages: []
+                };
+                if (!item.name) return alert('Name is required');
+                
+                if (isNew) {
+                    destinations.push(item);
+                } else {
+                    const idx = destinations.findIndex(d => d.id === currentEditId);
+                    if (idx >= 0) destinations[idx] = item;
+                }
+                localStorage.setItem('gbDestinations', JSON.stringify(destinations));
+            } else if (type === 'package') {
+                item = {
+                    id: isNew ? Date.now() : currentEditId,
+                    name: document.getElementById('f_name').value,
+                    price: parseInt(document.getElementById('f_price').value) || 0,
+                    duration: parseInt(document.getElementById('f_duration').value) || 1,
+                    rating: parseFloat(document.getElementById('f_rating').value) || 4.8,
+                    category: document.getElementById('f_category').value,
+                    description: document.getElementById('f_description').value,
+                    image: document.getElementById('f_image').value,
+                    locations: []
+                };
+                if (!item.name) return alert('Name is required');
+                
+                if (isNew) {
+                    packages.push(item);
+                } else {
+                    const idx = packages.findIndex(p => p.id === currentEditId);
+                    if (idx >= 0) packages[idx] = item;
+                }
+                localStorage.setItem('gbPackages', JSON.stringify(packages));
+            } else if (type === 'testimonial') {
+                item = {
+                    id: isNew ? Date.now() : currentEditId,
+                    name: document.getElementById('f_name').value,
+                    destination: document.getElementById('f_destination').value,
+                    rating: parseInt(document.getElementById('f_rating').value) || 5,
+                    date: document.getElementById('f_date').value,
+                    review: document.getElementById('f_review').value
+                };
+                if (!item.name || !item.review) return alert('Name and review are required');
+                
+                if (isNew) {
+                    testimonials.push(item);
+                } else {
+                    const idx = testimonials.findIndex(t => t.id === currentEditId);
+                    if (idx >= 0) testimonials[idx] = item;
+                }
+                localStorage.setItem('gbTestimonials', JSON.stringify(testimonials));
+            }
+
+            renderAll();
+            updateLastSaved();
+            closeModal();
+            alert('Saved successfully!');
+        }
+
+        function deleteItem(type, id) {
+            if (!confirm('Are you sure you want to delete this item?')) return;
+            
+            if (type === 'destination') {
+                destinations = destinations.filter(d => d.id !== id);
+                localStorage.setItem('gbDestinations', JSON.stringify(destinations));
+            } else if (type === 'package') {
+                packages = packages.filter(p => p.id !== id);
+                localStorage.setItem('gbPackages', JSON.stringify(packages));
+            } else if (type === 'testimonial') {
+                testimonials = testimonials.filter(t => t.id !== id);
+                localStorage.setItem('gbTestimonials', JSON.stringify(testimonials));
+            }
+            
+            renderAll();
+            updateLastSaved();
+        }
+
+        // Image handling
+        function openImageModal(id) {
+            currentImageId = id;
+            const modal = document.getElementById('imageModal');
+            const input = document.getElementById('imageUrl');
+            const preview = document.getElementById('imagePreview');
+            
+            input.value = '';
+            preview.style.display = 'none';
+            preview.src = '';
+            
+            const dest = destinations.find(d => d.id === id);
+            if (dest) input.value = dest.image || '';
+            
+            modal.classList.add('active');
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.remove('active');
+            currentImageId = null;
+        }
+
+        function previewImage(input) {
+            const preview = document.getElementById('imagePreview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function saveImage() {
+            const urlInput = document.getElementById('imageUrl').value;
+            const fileInput = document.getElementById('imageFile');
+            let imageUrl = urlInput;
+            
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    updateDestinationImage(currentImageId, e.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                updateDestinationImage(currentImageId, imageUrl);
+            }
+        }
+
+        function updateDestinationImage(id, url) {
+            const idx = destinations.findIndex(d => d.id === id);
+            if (idx >= 0) {
+                destinations[idx].image = url;
+                localStorage.setItem('gbDestinations', JSON.stringify(destinations));
+                renderDestinations();
+                updateLastSaved();
+            }
+            closeImageModal();
+            alert('Image updated!');
+        }
+
+        // Export functions
+        function exportData(type) {
+            let data, filename;
+            if (type === 'destinations') {
+                data = JSON.stringify(destinations, null, 2);
+                filename = 'destinations.json';
+            } else if (type === 'packages') {
+                data = JSON.stringify(packages, null, 2);
+                filename = 'packages.json';
+            } else if (type === 'testimonials') {
+                data = JSON.stringify(testimonials, null, 2);
+                filename = 'testimonials.json';
+            }
+            
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function exportAllData() {
+            exportData('destinations');
+            setTimeout(() => exportData('packages'), 500);
+            setTimeout(() => exportData('testimonials'), 1000);
+            alert('All data exported!');
+        }
+
+        function clearAllData() {
+            if (!confirm('This will clear ALL data. Are you sure? This cannot be undone!')) return;
+            localStorage.removeItem('gbDestinations');
+            localStorage.removeItem('gbPackages');
+            localStorage.removeItem('gbTestimonials');
+            loadData();
+            alert('All data cleared. Page will reload.');
+            location.reload();
+        }
+
+        function updateLastSaved() {
+            const now = new Date().toLocaleTimeString();
+            document.getElementById('lastSaved').textContent = now;
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

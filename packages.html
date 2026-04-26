@@ -46,6 +46,38 @@
             <div class="hero-overlay"></div>
         </section>
 
+        <!-- Filter Controls -->
+        <section style="background: #f8f9fa; padding: 20px; margin-bottom: 20px;">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+                <div style="flex: 1; min-width: 200px;">
+                    <input type="text" id="pkgSearchFilter" placeholder="Search packages..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;" onkeyup="applyPkgFilters()">
+                </div>
+                <select id="pkgCategoryFilter" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; min-width: 150px;" onchange="applyPkgFilters()">
+                    <option value="">All Categories</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Expedition">Expedition</option>
+                    <option value="Mountaineering">Mountaineering</option>
+                    <option value="Tour">Tour</option>
+                    <option value="Circuit">Circuit</option>
+                </select>
+                <select id="pkgPriceFilter" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; min-width: 150px;" onchange="applyPkgFilters()">
+                    <option value="">All Prices</option>
+                    <option value="0-1500">Under $1500</option>
+                    <option value="1500-2500">$1500 - $2500</option>
+                    <option value="2500-3500">$2500 - $3500</option>
+                    <option value="3500+">$3500+</option>
+                </select>
+                <select id="pkgDurationFilter" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; min-width: 150px;" onchange="applyPkgFilters()">
+                    <option value="">Any Duration</option>
+                    <option value="1-5">1-5 days</option>
+                    <option value="6-10">6-10 days</option>
+                    <option value="10+">10+ days</option>
+                </select>
+                <button onclick="clearPkgFilters()" style="padding: 12px 20px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">Clear</button>
+            </div>
+        </section>
+
         <!-- Packages -->
         <section class="featured-section">
             <div class="section-header">

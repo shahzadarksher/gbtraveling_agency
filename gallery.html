@@ -22,6 +22,125 @@
             color: #2c3e50;
             margin-bottom: 10px;
         }
+        .admin-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            color: white;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .admin-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        .toggle-admin-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .toggle-admin-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .admin-content {
+            display: none;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .admin-content.active {
+            display: block;
+        }
+        .upload-form {
+            margin-bottom: 20px;
+        }
+        .upload-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .file-input-label:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        .file-input-label i {
+            font-size: 1.5em;
+        }
+        .image-title-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .upload-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .upload-btn:hover {
+            background: #229954;
+        }
+        .uploaded-images-info {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .uploaded-images-info strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .remove-upload-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+        .remove-upload-btn:hover {
+            background: #c0392b;
+        }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -36,6 +155,9 @@
             height: 250px;
             background-size: cover;
             background-position: center;
+        }
+        .gallery-item.uploaded {
+            border: 2px solid #27ae60;
         }
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
@@ -52,10 +174,26 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            flex-direction: column;
+            gap: 15px;
         }
         .gallery-overlay i {
             font-size: 2.5em;
             color: white;
+        }
+        .gallery-delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: none;
+        }
+        .gallery-item.uploaded:hover .gallery-delete-btn {
+            display: block;
         }
         .lightbox {
             display: none;
@@ -121,6 +259,37 @@
             <h2>Explore Our Photo Gallery</h2>
             <p>Click on any image to view it in full size</p>
         </div>
+
+        <!-- Admin Upload Section -->
+        <div class="admin-section">
+            <div class="admin-header">
+                <h3><i class="fas fa-lock"></i> Admin Panel - Upload Images</h3>
+                <button class="toggle-admin-btn" onclick="toggleAdminPanel()">
+                    <i class="fas fa-chevron-down"></i> <span id="toggleText">Show</span>
+                </button>
+            </div>
+            <div class="admin-content" id="adminContent">
+                <div class="upload-form">
+                    <label>Select Images to Upload:</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="imageInput" multiple accept="image/*" onchange="handleImageSelect(event)">
+                        <label for="imageInput" class="file-input-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Click or drag images here to upload (JPG, PNG, GIF, WebP)</span>
+                        </label>
+                    </div>
+                    <input type="text" id="imageTitle" class="image-title-input" placeholder="Enter image title (optional)">
+                    <button class="upload-btn" onclick="uploadImage()">
+                        <i class="fas fa-upload"></i> Upload Image
+                    </button>
+                </div>
+                <div class="uploaded-images-info" id="uploadedInfo" style="display: none;">
+                    <strong>Uploaded Images:</strong>
+                    <div id="uploadedList"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="gallery-grid" id="galleryGrid"></div>
     </div>
 

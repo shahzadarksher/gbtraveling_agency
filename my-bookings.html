@@ -428,7 +428,7 @@
             } catch (error) {
                 console.error('Error loading bookings:', error);
                 // If bookings.json not available, check localStorage
-                const savedBookings = localStorage.getItem('bookings');
+                const savedBookings = localStorage.getItem('gbTravelingBookings');
                 if (savedBookings) {
                     allBookings = JSON.parse(savedBookings);
                     displayBookings(allBookings);
@@ -609,7 +609,7 @@
 
         function confirmDelete() {
             allBookings = allBookings.filter(b => b.id !== bookingToDelete);
-            localStorage.setItem('bookings', JSON.stringify(allBookings));
+            localStorage.setItem('gbTravelingBookings', JSON.stringify(allBookings));
             closeDeleteModal();
             displayBookings(allBookings);
         }
